@@ -1,0 +1,69 @@
+<form action="/admin/editAdminDetails" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="editData" value="<%=stRecord.id%>" />
+  <table border="1">
+    <tr>
+      <td>Enter first Name:</td>
+      <td><input type="text" name="fname" value="<%=stRecord.fname%>" /></td>
+    </tr>
+    <tr>
+      <td>Enter last Name:</td>
+      <td><input type="text" name="lname" value="<%=stRecord.lname%>" /></td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td><input type="text" name="email" value="<%=stRecord.email%>" /></td>
+    </tr>
+    <tr>
+      <td>Select Gender:</td>
+      <td>
+        <input type="radio" name="gender" value="male" <%
+        if(stRecord.gender=='male'){%><%='checked'%><%}%>/>male <input type="radio"
+        name="gender" value="female" <%
+        if(stRecord.gender=='female'){%><%='checked'%><%}%>/>female
+      </td>
+    </tr>
+    <tr>
+      <td>Select Hobby:</td>
+      <td>
+        <input type="checkbox" name="hobby" value="Reading" <%
+        if(stRecord.hobby.includes('Reading')){%> <%='checked'%> <%}%> />Reading
+        <input type="checkbox" name="hobby" value="Workout" <%
+        if(stRecord.hobby.includes('Workout')){%> <%='checked'%> <%}%>/>Workout
+        <input type="checkbox" name="hobby" value="Meditation" <%
+        if(stRecord.hobby.includes('Meditation')){%> <%='checked'%>
+        <%}%>/>Meditation
+      </td>
+    </tr>
+    <tr>
+      <td>Select city:</td>
+      <td>
+        <% var cityData = ["surat","rajkot","vadodara","ganthinagar"] %>
+        <select name="city">
+          <option value="">--select-city--</option>
+          <% cityData.map((v,i)=>{ %>
+          <option <% if(stRecord.city==v){%><%='selected'%><%}%>><%= v %></option>
+          <% }); %>
+        </select>
+      </td>
+    </tr>
+     <tr>
+          <td>Message</td>
+          <td>
+            <textarea name="message"> <%= stRecord.message %> </textarea>
+          </td>
+      </tr>
+      <tr>
+        <td>Upload Img</td>
+        <td>
+          <input type="file" name="admin" />
+          <img src="<%= stRecord.adminImg %>" height="100px">
+        </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Edit Details" /></td>
+    </tr>
+  </table>
+</form>
+
+<a href="/admin/dashboard">back</a>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    padding: 20px;
+    background: #7b7979;
+  }
+  
+  /* Header/Blog Title */
+  .header {
+    padding: 30px;
+    font-size: 20px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border-radius: 30px 30px 0 0;
+  }
+  
+  /* Create two unequal columns that floats next to each other */
+  /* Left column */
+  .leftcolumn {
+    float: left;
+    width: 33%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+  }
+  
+  /* Fake image */
+  .fakeimg {
+    background-color: #aaa;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Personal Things</h2>
+      </div>
+      
+      <div class="row">
+          <div class="leftcolumn">
+            <div style="display: flex; justify-content: space-between;">
+            <div class="card" style="margin-left: 180px; margin-right: 80px;">
+                <div class="fakeimg" >
+                    <% for(var v of stData) { %> 
+                        <img src="<%= v.postImg %>" alt="Image" height="200" style="margin: 10px;"/>
+                    <% } %>
+                </div>
+                <h2>HEADING</h2>
+              <p>Some text..</p>
+            </div>
+            <div class="card" style="margin-right: 80px;">
+                <div class="fakeimg" >
+                    <% for(var v of stData) { %> 
+                        <img src="<%= v.postImg %>" alt="Image" height="200" style="margin: 10px;"/>
+                    <% } %>
+                </div>
+                <h2>HEADING</h2>
+              <p>Some text..</p>
+            </div>
+            <div class="card">
+                <div class="fakeimg" >
+                    <% for(var v of stData) { %> 
+                        <img src="<%= v.postImg %>" alt="Image" height="200" style="margin: 10px;"/>
+                    <% } %>
+                </div>
+                <h2>HEADING</h2>
+              <p>Some text..</p>
+            </div>
+        </div>
+          </div>
+        </div>
+        <div class="rightcolumn">
+
+          <!-- <div class="card">
+            <h2>About Me</h2>
+            <div class="fakeimg" style="height:100px;">Image</div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+          </div> -->
+          
+        </div>
+      </div>
+      
+</body>
+</html>

@@ -1,0 +1,113 @@
+<%- include('u_header') %>
+<div class="slider">
+  <div class="fullwidthbanner-container">
+    <div class="fullwidthbanner">
+      <ul>
+        <% for(var sv of sliData){ %>
+        <li
+          class="first-slide"
+          data-transition="fade"
+          data-slotamount="10"
+          data-masterspeed="300"
+        >
+          <img
+            src="<%= sv.sliderImg %>"
+            data-fullwidthcentering="on"
+            alt="slide"
+          />
+
+          <div
+            class="tp-caption first-line lft tp-resizeme start"
+            data-x="center"
+            data-hoffset="0"
+            data-y="250"
+            data-speed="1000"
+            data-start="200"
+            data-easing="Power4.easeOut"
+            data-splitin="none"
+            data-splitout="none"
+            data-elementdelay="0"
+            data-endelementdelay="0"
+          >
+            <%= sv.title %>
+          </div>
+
+          <div
+            class="tp-caption second-line lfb tp-resizeme start"
+            data-x="center"
+            data-hoffset="0"
+            data-y="340"
+            data-speed="1000"
+            data-start="800"
+            data-easing="Power4.easeOut"
+            data-splitin="none"
+            data-splitout="none"
+            data-elementdelay="0"
+            data-endelementdelay="0"
+          >
+            <%= sv.name %>
+          </div>
+
+          <div
+            class="tp-caption slider-btn sfb tp-resizeme start"
+            data-x="center"
+            data-hoffset="0"
+            data-y="510"
+            data-speed="1000"
+            data-start="2200"
+            data-easing="Power4.easeOut"
+            data-splitin="none"
+            data-splitout="none"
+            data-elementdelay="0"
+            data-endelementdelay="0"
+          >
+            <a href="#" class="btn btn-slider"><%= sv.button %></a>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section class="services green">
+  <div class="container">
+    <div class="section-heading">
+      <h2>What We Offer</h2>
+      <div class="section-dec"></div>
+    </div>
+    <% for(var ff of offer){ %>
+    <div class="service-item col-md-4">
+      <span><i class="fa fa-eye"></i></span>
+      <div class="tittle"><h3><%= ff.title %></h3></div>
+      <p><%= ff.description %></p>
+    </div>
+    <% } %>
+  </div>
+</section>
+
+<section class="blog-posts">
+  <div class="container">
+    <div class="section-heading">
+      <h2 style="color: black">Latest Posts</h2>
+      <div class="section-dec"></div>
+    </div>
+    <%for(var po of post){%>
+    <div class="blog-item">
+      <div class="col-md-4">
+        <a href="blog-single.html"
+          ><img src="po.postImg" style="height: 100" alt=""
+        /></a>
+        <h3><a href="blog-single.html"><%= po.title %></a></h3>
+
+        <p><%= po.description %></p>
+        <div class="read-more">
+          <a href="blog-single.html">Read more</a>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('u_footer') %>
